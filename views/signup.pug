@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		title PerDay signup
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+	body
+		h1
+			|Iscriviti per continuare:
+
+		b1
+		
+			form(action='/signup', method='POST')
+
+			div.form-group
+				label(for='Nome Cognome') Inserire nome e cognome:	
+				input#descrizione.form-control(type='text', placeholder = 'Nome Cognome', name='Nome Cognome', value=(undefined===form ? '' : form.descrizione))    
+
+
+			div.form-group
+				label(for='Password') Inserire password:	
+				input#descrizione.form-control(type='text', placeholder = 'Password', name='Password', value=(undefined===form ? '' : form.descrizione)) 
+
+
+			button.btn.btn-primary(type='submit') Invia
+
+			
+			form(action='/', method='GET')
+			button.btn.btn-primary(type='submit') Torna alla home
