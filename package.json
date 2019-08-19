@@ -1,0 +1,27 @@
+{
+  "name": "perday",
+  "version": "1.0.0",
+  "description": "A webapp to decide a day when to meet old schoolmates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified :D\\\" && exit 1",
+    "start": "npm install && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoBrizi/PerDay.git"
+  },
+  "author": "Leonardo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeoBrizi/PerDay/issues"
+  },
+  "homepage": "https://github.com/LeoBrizi/PerDay#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
+  }
+}
