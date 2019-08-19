@@ -2,7 +2,7 @@
   "name": "perday",
   "version": "1.0.0",
   "description": "A webapp to decide a day when to meet old schoolmates",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified :D\\\" && exit 1",
     "start": "npm install && node server.js"
