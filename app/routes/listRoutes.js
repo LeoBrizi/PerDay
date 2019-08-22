@@ -46,7 +46,7 @@ module.exports = function(app,request,querystring){
 					da:info.da,
 					a:info.a,
 					dove:info.dove,
-					id:listaEventi.lenght
+					id:listaEventi.lenght,
 					iscritti:[]
 				}
 				//POST INSERITO NEL DB------------------------------
