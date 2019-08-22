@@ -1,0 +1,40 @@
+doctype html
+html
+	head
+		title Nuovo Evento
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		script(type='text/javascript').
+	body
+		h1
+			|Nuovo Evento
+		
+		form(action='', method='POST' )
+
+			div.form-group
+				label(for='Titolo') Inserire il titolo dell'evento: (*)
+				input#titolo.form-control(type='text', name='titolo', required='true', value=(undefined===form ? '' : form.titolo))
+
+			div.form-group
+				label(for='password') Inserire una password di invito all'evento: (*)
+				input#password.form-control(type='text', placeholder='', name='password', required='true', value=(undefined===form ? '' : form.password))
+
+			div.form-group
+				label(for='da') Inserire la data di inizio evento: (*)
+				input#da.form-control(type='date', placeholder='yyyy/mm/dd', name='da', required='true', value=(undefined===form ? '' : form.da))
+
+			div.form-group
+				label(for='a') Inserire la data di fine evento: (*)
+				input#a.form-control(type='date', placeholder='yyyy/mm/dd', name='a', required='true', value=(undefined===form ? '' : form.a))
+
+
+			div.form-group
+				label(for='dove') Indicare il dove:
+				input#dove.form-control(type='text', placeholder='da Virgili', name='dove', value=(undefined===form ? '' : form.dove))
+
+			button.btn.btn-primary(type='submit') Crea
+
+		if errors 
+			h1
+				|Stronzo inserisci le cose per benino

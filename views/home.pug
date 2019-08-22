@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        title Per Day?!
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    body
+        h1
+            |Riusciremo a trovare un cazzo di giorno?! (Mannaggia a Virgili) :/.
+        h2 Eventi in corso:
+        each evento in eventi
+            tr
+                td(style="border: 1px solid green")
+                    | Titolo evento: #{evento.titolo}
+                    br
+                    | da: #{evento.da}
+                    br
+                    | a: #{evento.a}
+                    br
+                    | dove: #{evento.dove}
+                    br
+                    a(href='/' + evento._id )
+                        button(type="button") Iscriviti 
+                    br
+                    br
+        td(style="border: 1px solid green")
+br
+form(action='/nuovo_evento', method='GET')
+            input(type='submit', value='Crea Evento')
