@@ -9,11 +9,11 @@ module.exports = function(app,request,querystring){
 		res.render('home',{eventi: listaEventi});
 	});
 
-	app.get('/nuovo_evento/', function (req, res){
+	app.get('/nuovo_evento', function (req, res){
 		res.render('form');
     });
 
-	app.post('/:id', [
+	app.post('/', [
 		//verifichiamo che città e data siano state inserite correttamente
 		body('password').isLength({ min: 1 }).trim().withMessage('password non inserita.')
 		.isAlpha().withMessage('La password deve essere composta da sole lettere'),
@@ -53,7 +53,7 @@ module.exports = function(app,request,querystring){
 				console.log(evento)
 				listaEventi.push(evento);
 				console.log('inserito evento nel db');
-				res.render('home', {eventi: listaEventi});
+				res.redirect('/');
 			}
 		}
     ]);

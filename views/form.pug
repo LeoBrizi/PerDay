@@ -10,7 +10,7 @@ html
 		h1
 			|Nuovo Evento
 		
-		form(action='', method='POST' )
+		form(action='/', method='POST' )
 
 			div.form-group
 				label(for='Titolo') Inserire il titolo dell'evento: (*)
@@ -36,5 +36,6 @@ html
 			button.btn.btn-primary(type='submit') Crea
 
 		if errors 
-			h1
-				|Stronzo inserisci le cose per benino
+			ul
+				for error in errors
+					li!= error.msg
