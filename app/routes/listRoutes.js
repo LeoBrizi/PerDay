@@ -2,8 +2,43 @@ module.exports = function(app,request,querystring){
 
 	const { body,validationResult } = require('express-validator/check');
 	const { sanitizeBody } = require('express-validator/filter');
+	const fs = require("fs");
 
-	var listaEventi = []
+	var listaEventi = [];
+
+	process
+	.on('SIGTERM', shutdown('SIGTERM'))
+	.on('SIGINT', shutdown('SIGINT'))
+	.on('uncaughtException', shutdown('uncaughtException'));
+
+	function shutdown(signal) {
+		return (err) => {
+			console.log(`${ signal }...`);
+			if (err) console.error(err.stack || err);
+			setTimeout(() => {
+				console.log("scrittura database..."); 
+				fs.writeFileSync('dataBase.txt', JSON.stringify(listaEventi));
+				console.log("scrittura riuscita!");
+				console.log('...waited 5s, exiting.');
+				process.exit(err ? 1 : 0);
+			}, 5000).unref();
+		};
+	}
+
+	fs.readFile('dataBase.txt', function(err, data) {
+		console.log("caricamento dati dal db...")
+		listaEventi = JSON.parse(data);
+    	console.log("ok");
+    	fs.unlink('dataBase.txt', function (err) {
+			if (err) 
+				console.log("database già eliminato");
+			else
+				console.log('File deleted!');
+		}); 
+  	});
+
+
+
 
 	app.get('/', function(req,res) {    
 		res.render('home',{eventi: listaEventi});
