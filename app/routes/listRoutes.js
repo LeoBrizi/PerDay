@@ -27,7 +27,13 @@ module.exports = function(app,request,querystring){
 
 	fs.readFile('dataBase.txt', function(err, data) {
 		console.log("caricamento dati dal db...")
-		listaEventi = JSON.parse(data);
+		try{
+			listaEventi = JSON.parse(data);
+		}catch(e){
+			console.log("impossibile leggere dati dal file");
+			console.log(e);
+			listaEventi = [];
+		}
     	console.log("ok");
     	fs.unlink('dataBase.txt', function (err) {
 			if (err) 
@@ -36,9 +42,6 @@ module.exports = function(app,request,querystring){
 				console.log('File deleted!');
 		}); 
   	});
-
-
-
 
 	app.get('/', function(req,res) {    
 		res.render('home',{eventi: listaEventi});
