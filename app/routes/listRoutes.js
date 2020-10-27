@@ -51,6 +51,10 @@ module.exports = function(app,request,querystring){
 		res.render('form');
     });
 
+	app.get('/razzo', function (req, res){
+		res.redirect('https://drive.google.com/file/d/1TpD8iV-8rRbCrK36vKuTjAc-6zhmaAK_/view?usp=sharing');
+  });
+
 	app.post('/', [
 		//verifichiamo che città e data siano state inserite correttamente
 		body('password').isLength({ min: 1 }).trim().withMessage('password non inserita.')
